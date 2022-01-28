@@ -7,7 +7,7 @@ license-file = "LICENSE"
 name = "rfid-debug"
 readme = "README.md"
 repository = "https://github.com/kylestev/rfid-reader"
-version = "0.0.1"
+version = "0.0.2"
 
 [dependencies]
 bit_field = "0.10.1"
