@@ -1,20 +1,29 @@
 use bit_field::BitField;
 
+/// Structure of a Wiegand format. Wiegand encoding can vary depending on the
+/// manufacturer or implementation of access control in a facility.
 pub struct WiegandFormat {
+    /// Position of the even parity bit
     pub parity_even: usize,
+    /// Position of the odd parity bit
     pub parity_odd: usize,
+    /// Facility code bit range denoted by: inclusive lower bound and non-inclusive upper bound
     pub facility_code: (usize, usize),
+    /// Card number/identifier bit range denoted by: inclusive lower bound and non-inclusive upper bound
     pub card_number: (usize, usize),
 }
 
+/// Encoding issues
 #[derive(Debug)]
 pub enum WiegandError {
+    /// Parity bit was wrong, possible bad read
     InvalidParity,
+    /// Attempting to access a bit range [start, end) where start > end
     InvalidRange,
 }
 
 impl WiegandFormat {
-    /// decode a (facility_code, card_number) tuple from an integer sourced from an RFID scan
+    /// Decodes a (facility_code, card_number) tuple from an integer sourced from an RFID scan
     pub fn decode(self, i: u32) -> Result<(u8, u16), WiegandError> {
         let facility_code = i.get_bits(self.facility_code.0..self.facility_code.1) as u8;
         let card_number = i.get_bits(self.card_number.0..self.card_number.1) as u16;
