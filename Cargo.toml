@@ -1,13 +1,13 @@
 [package]
 description = "RFID reader utilities to encode and decode H10301 26bit Wiegand format"
-documentation = "https://docs.rs/rfid-reader"
+documentation = "https://docs.rs/rfid-debug"
 edition = "2021"
-homepage = "https://github.com/kylestev/rfid-reader"
+homepage = "https://github.com/kylestev/rfid-debug"
 license-file = "LICENSE"
 name = "rfid-debug"
 readme = "README.md"
-repository = "https://github.com/kylestev/rfid-reader"
-version = "0.0.4"
+repository = "https://github.com/kylestev/rfid-debug"
+version = "0.0.5"
 
 [dependencies]
 bit_field = "0.10.1"
