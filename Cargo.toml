@@ -3,6 +3,7 @@ description = "RFID reader utilities to encode and decode H10301 26bit Wiegand f
 documentation = "https://docs.rs/rfid-debug"
 edition = "2021"
 homepage = "https://github.com/kylestev/rfid-debug"
+license = "MIT"
 license-file = "LICENSE"
 name = "rfid-debug"
 readme = "README.md"
